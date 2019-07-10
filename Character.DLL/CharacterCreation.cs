@@ -6,13 +6,33 @@ using System.Linq;
 
 namespace Character.DLL
 {
-    public class CharacterCreation : IRace
+    public class CharacterCreation : IRace, IClass
     {
         public string characterRace = string.Empty;
         public string characterClass = string.Empty;
         RaceCharacter CharacterRace = new RaceCharacter();
-        // ClassCharacter CharacterClass = new ClassCharacter();
+        ClassCharacter CharacterClass = new ClassCharacter();
 
+        // === Classes stuff ===
+        public void ReturnAllClasses()
+        {
+            foreach(string classes in Enum.GetNames(typeof(Classes)))
+            {
+                Console.WriteLine(classes);
+            }
+        }
+
+        public void SetClass(string characterClass)
+        {
+            CharacterClass.SetClass(characterClass);
+        }
+
+        public string GetClass()
+        {
+            return CharacterClass.GetClass();
+        }
+
+        // === Races stuff ===
         public void ReturnAllRaces()
         {
             foreach(string race in Enum.GetNames(typeof(Races)))
@@ -31,12 +51,5 @@ namespace Character.DLL
         {
             return CharacterRace.GetRace();
         }
-
-        public int Strength { get; private set; }
-        public int Dexterity { get; private set; }
-        public int Stamina { get; private set; }
-        public int Intelligence { get; private set; }
-        public int Wisdom { get; private set; }
-        public int Charisma { get; private set; }
     }
 }
