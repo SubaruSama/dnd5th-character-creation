@@ -1,9 +1,14 @@
 # Ignore .git folder
 .git/
 
+# By now, i dont need json to be published
+*.json
+
 #Ignore thumbnails created by Windows
 Thumbs.db
 #Ignore files built by Visual Studio
+*.dll
+*.pubxml
 *.obj
 *.exe
 *.pdb
