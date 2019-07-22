@@ -7,9 +7,12 @@ namespace DnD5th_CaracterCreation
     {
         static void Main(string[] args)
         {
-            string raceTemp = string.Empty;
-            string classTemp = string.Empty;
+            string raceTemp, classTemp, filename, writeToText;
             CharacterCreation character = new CharacterCreation();
+            Writer writer = new Writer();
+
+            Console.WriteLine("Enter the name of the file to save: ");
+            filename = Console.ReadLine();
 
             Console.WriteLine("Possible races for the character: ");
             character.ReturnAllRaces();
@@ -30,6 +33,10 @@ namespace DnD5th_CaracterCreation
             Console.WriteLine("\n======================\n");
 
             Console.WriteLine($"Info of the character: \nRace: {character.GetRace()}\nClass: {character.GetClass()}");
+
+            writeToText = $"{character.GetRace()},{character.GetClass()}";
+
+            writer.WriteToFile(filename, writeToText);
 
             Console.Read();
         }

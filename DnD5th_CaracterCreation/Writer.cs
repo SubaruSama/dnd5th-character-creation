@@ -5,7 +5,7 @@ using System.IO;
 
 namespace DnD5th_CaracterCreation
 {
-    class Writer
+    public class Writer
     {
         /*
          * Get the path of the file;
@@ -13,5 +13,9 @@ namespace DnD5th_CaracterCreation
          * Write the contents of the character class, race and class, to file;
          * Close the file.
          */
+        public void WriteToFile(string filename, string data)
+        {
+            File.WriteAllText($"{$@"{Directory.GetCurrentDirectory()}\{filename}.txt"}", data);
+        }
     }
 }
